@@ -1,11 +1,11 @@
-
+import rain from './assets/rain.jpg'
 
 const projects = [
     {
-      title: "Weather Dashboard",
-      imageLink:
-        "https://picsum.photos/id/123/200/300",
+      title: 'Weather Dashboard',
+      liveImage: rain,
       liveLink: "https://weather-dashboard-drtq.onrender.com/",
+      gitHubImage: 'bi-linkedin',
       gitHub: "https://github.com/HospitalGiftShop/Weather-Dashboard.git",
     },
   ];

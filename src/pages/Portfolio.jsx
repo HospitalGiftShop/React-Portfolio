@@ -1,55 +1,85 @@
-// Imports
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap-utilities.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import projects from '../Projects.jsx';
-import { Button } from 'react-bootstrap';  // Import Button from react-bootstrap for Bootstrap styling
 
-// Function that renders the portfolio cards, grid, buttons & exports
-export function Project( project ) {
+const Portfolio = () => {
   return (
-    <div className='col-md-4 mb-4'> {/* Bootstrap grid system */}
-      <div className='card'>
-        <img
-          src={project.imageLink}  // Use the correct image link
-          alt="displayed projects with associated links"
-        />
-        <div className='card-body'>
-          <h5 className='card-title'>{project.title}</h5> 
-          <p className='card-text'>{project.description}</p> 
-        </div>
-        <div className='card-footer text-center'>
-          <Button
-            variant="primary"
-            className="me-2"  // Margin-right for spacing
-            href={project.liveLink}
-            size="sm"
-          >
-            Live URL
-          </Button>
-          <Button
-            variant="secondary"
-            href={project.gitHub}
-            size="sm"
-          >
-            GitHub
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
-}
+    <div className="container mt-5">
+      <div className="row row-cols-1 row-cols-md-2 g-4">
+        {projects.map((project) => (
+          <div key={project.title} className="col">
+            <div
+              className="position-relative"
+              style={{
+                overflow: 'hidden',
+                width: '350px',
+                height: 'auto',
+              }}
+              onMouseEnter={(e) => {
+                const overlay = e.currentTarget.querySelector('.overlay');
+                overlay.style.opacity = '1';
+              }}
+              onMouseLeave={(e) => {
+                const overlay = e.currentTarget.querySelector('.overlay');
+                overlay.style.opacity = '0';
+              }}
+            >
+              {/* Main Image */}
+              <img
+                src={project.liveImage}
+                alt={project.title}
+                className="img-fluid border-0"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  transition: 'transform 0.3s',
+                }}
+              />
 
-// Function/component written to map over projects.js array
-export default function Work() {
-  return (
-    <div className='container py-5'>
-      <h1 className='text-center mb-4'>Portfolio</h1>
-      <div className='row'>  {/* Bootstrap row to wrap all cards */}
-        {projects.map((project, index) => (
-          <Project project={project} key={index} />
+              {/* Overlay for Title and GitHub Icon */}
+              <div
+                className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center"
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                  opacity: '0',
+                  transition: 'opacity 0.3s ease-in-out',
+                  zIndex: '10',
+                }}
+              >
+                {/* Title (click to liveLink) */}
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none text-dark mb-3"
+                  style={{ fontSize: '1.5rem', fontWeight: 'bold' }}
+                >
+                  {project.title}
+                </a>
+
+                {/* GitHub Icon (click to GitHub) */}
+                <a
+                  href={project.gitHub}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-dark"
+                >
+                  <i
+                    className="bi bi-github"
+                    style={{
+                      fontSize: '2rem',
+                    }}
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default Portfolio;
