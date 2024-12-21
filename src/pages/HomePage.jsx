@@ -1,3 +1,5 @@
+
+
 const HomePage = () => {
     return (
         <div className="container">
@@ -13,4 +15,4 @@ const HomePage = () => {
     );
 }
 
-export default HomePage
+export default HomePage;

@@ -1,16 +1,16 @@
-import { createBrowserRouter, RouteProvider } from 'react-router-dom';
+// main.jsx
+import './index.css';
+import App from './App.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
-
-import App from './App.jsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 import ErrorPage from './pages/ErrorPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import Contact from './pages/Contact.jsx';
 import Portfolio from './pages/Portfolio.jsx';
 import Resume from './pages/Resume.jsx';
 import AboutPage from './pages/AboutPage.jsx';
-import { createRoot } from 'react-dom';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +42,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
-  <RouteProvider router={router} />,
-)
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <RouterProvider router={router} />,
+);

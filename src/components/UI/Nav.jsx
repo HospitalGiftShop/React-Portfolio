@@ -1,64 +1,55 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
-import Nav from './UI/Nav.jsx';
-import HomePage from '../../pages/HomePage.jsx';
 
-const pages = ['Home', 'About Me', 'Portfolio', 'Contact', 'Resume'];
 
-export default function Nav({currentPage, setCurrentPage, handleCloseNavMenu}) {
-    return (
-        <ul className='nav nav-tabs' style={{paddingRight: '35px', paddingTop: '22px'}}>
-            <li className='navItem'>
-                <a
-                id='nav-link'
-                href='#Home'
-                onClick={() => setCurrentPage('Home')}
-                className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
-                > 
+export default function Nav() {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div className="container-fluid">
+        <Link to="/" className="navbar-brand">
+          Tara
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <Link to="/" className="nav-link text-light">
                 Home
-                </a>
+              </Link>
             </li>
-            <li className='navItem'>
-                <a
-                id='nav-link'
-                href='#About Me'
-                onClick={() => setCurrentPage('About Me')}
-                className={currentPage === 'About Me' ? 'nav-link active' : 'nav-link'}
-                > 
+            <li className="nav-item">
+              <Link to="/about" className="nav-link text-light">
                 About Me
-                </a>
+              </Link>
             </li>
-            <li className='navItem'>
-                <a
-                id='nav-link'
-                href='#Portfolio'
-                onClick={() => setCurrentPage('Portfolio')}
-                className={currentPage === 'Portfolio' ? 'nav-link active' : 'nav-link'}
-                > 
+            <li className="nav-item">
+              <Link to="/portfolio" className="nav-link text-light">
                 Portfolio
-                </a>
+              </Link>
             </li>
-            <li className='navItem'>
-                <a
-                id='nav-link'
-                href='#Contact'
-                onClick={() => setCurrentPage('Contact')}
-                className={currentPage === 'Contact' ? 'nav-link active' : 'nav-link'}
-                > 
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link text-light">
                 Contact
-                </a>
+              </Link>
             </li>
-            <li className='navItem'>
-                <a
-                id='nav-link'
-                href='#Resume'
-                onClick={() => setCurrentPage('Resume')}
-                className={currentPage === 'Resume' ? 'nav-link active' : 'nav-link'}
-                > 
+            <li className="nav-item">
+              <Link to="/resume" className="nav-link text-light">
                 Resume
-                </a>
+              </Link>
             </li>
-
-        </ul>
-    );
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 }
