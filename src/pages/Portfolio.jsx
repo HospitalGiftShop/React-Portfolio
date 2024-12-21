@@ -1,62 +1,55 @@
+// Imports
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import 'bootstrap/dist/css/bootstrap-utilities.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import projects from '../Projects.jsx';
+import { Button } from 'react-bootstrap';  // Import Button from react-bootstrap for Bootstrap styling
 
-
-const Portfolio = () => {
-    const projects = [
-        {
-            id: 1,
-            title: "Picture 1",
-            image: '',
-            url: 'https://www.google.com',
-        },
-        {
-            id: 2,
-            title: "Picture 2",
-            image: '',
-            url: 'https://www.google.com',
-        },
-        {
-            id: 3,
-            title: "Picture 3",
-            image: '',
-            url: 'https://www.google.com',
-        },
-        {
-            id: 4,
-            title: "Picture 4",
-            image: '',
-            url: 'https://www.google.com',
-        },
-        {
-            id: 5,
-            title: "Picture 5",
-            image: '',
-            url: 'https://www.google.com',
-        },
-        {
-            id: 6,
-            title: "Picture 6",
-            image: '',
-            url: 'https://www.google.com',
-        }
-
-    ];
-
-    return (
-        <div className="portfolio-container">
-          {projects.map((project) => (
-            <a
-              key={project.id}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card"
-            >
-              <img src={project.image} alt={project.title} className="project-image" />
-              <h3 className="project-title">{project.title}</h3>
-            </a>
-          ))}
+// Function that renders the portfolio cards, grid, buttons & exports
+export function Project( project ) {
+  return (
+    <div className='col-md-4 mb-4'> {/* Bootstrap grid system */}
+      <div className='card'>
+        <img
+          src={project.imageLink}  // Use the correct image link
+          alt="displayed projects with associated links"
+        />
+        <div className='card-body'>
+          <h5 className='card-title'>{project.title}</h5> 
+          <p className='card-text'>{project.description}</p> 
         </div>
-      );
-    };
-    
-    export default Portfolio;
+        <div className='card-footer text-center'>
+          <Button
+            variant="primary"
+            className="me-2"  // Margin-right for spacing
+            href={project.liveLink}
+            size="sm"
+          >
+            Live URL
+          </Button>
+          <Button
+            variant="secondary"
+            href={project.gitHub}
+            size="sm"
+          >
+            GitHub
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Function/component written to map over projects.js array
+export default function Work() {
+  return (
+    <div className='container py-5'>
+      <h1 className='text-center mb-4'>Portfolio</h1>
+      <div className='row'>  {/* Bootstrap row to wrap all cards */}
+        {projects.map((project, index) => (
+          <Project project={project} key={index} />
+        ))}
+      </div>
+    </div>
+  );
+}

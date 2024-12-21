@@ -5,26 +5,26 @@ import App from './App.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
-import ErrorPage from './pages/ErrorPage.jsx';
-import HomePage from './pages/HomePage.jsx';
+import Error from './pages/Error.jsx';
+import Home from './pages/Home.jsx';
 import Contact from './pages/Contact.jsx';
 import Portfolio from './pages/Portfolio.jsx';
 import Resume from './pages/Resume.jsx';
-import AboutPage from './pages/AboutPage.jsx';
+import About from './pages/About.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <Home />,
       },
       {
         path: 'about',
-        element: <AboutPage />,
+        element: <About />,
       },
       {
         path: 'portfolio',
