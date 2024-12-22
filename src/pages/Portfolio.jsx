@@ -6,7 +6,7 @@ import projects from '../Projects.jsx';
 
 const Portfolio = () => {
   return (
-    <div className="container mt-5">
+    <div className="d-flex mt-5 mb-5">
       <div className="row row-cols-1 row-cols-md-2 g-4">
         {projects.map((project) => (
           <div key={project.title} className="col">
@@ -15,7 +15,7 @@ const Portfolio = () => {
               style={{
                 overflow: 'hidden',
                 width: '350px',
-                height: 'auto',
+                height: '250px',
               }}
               onMouseEnter={(e) => {
                 const overlay = e.currentTarget.querySelector('.overlay');
