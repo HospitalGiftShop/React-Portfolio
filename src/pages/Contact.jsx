@@ -95,7 +95,7 @@ function Contact() {
   };
 
   return (
-    <div className="d-flex flex-column p-2">
+    <div className="p-2">
       <h2 className='text-start p-2'>Contact</h2>
       <form className="form w-50 mt-2 mb-3" onSubmit={handleFormSubmit}>
         <div className="mb-3">

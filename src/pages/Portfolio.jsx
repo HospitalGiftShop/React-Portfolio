@@ -6,10 +6,10 @@ import projects from '../Projects.jsx';
 
 const Portfolio = () => {
   return (
-    <div className="d-flex mt-5 mb-5 justify-content-center">
-      <div className="row row-cols-1 row-cols-md-2 g-4">
+    <div className="mt-5 mb-5">
+      <div className="row md-2 g-2">
         {projects.map((project) => (
-          <div key={project.title} className="col">
+          <div key={project.title} className="row col justify-content-center g-3">
             <div
               className="position-relative"
               style={{
