@@ -6,8 +6,8 @@ export default function ErrorPage() {
 
   return (
     <div id="error-page">
-      <h1>Well Shoot!</h1>
-      <p>Sorry, portfolios should be much more reliable than this.</p>
+      <h1>Uh Oh!</h1>
+      <p>Sorry, there must have been something I did not account for.</p>
       <p>
         <i>{error.statusText || error.message}</i>
       </p>
