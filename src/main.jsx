@@ -1,10 +1,11 @@
-// main.jsx
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import './index.css';
-import App from './App.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { createRoot } from 'react-dom/client';
+
+import App from './App.jsx';
 import Error from './pages/Error.jsx';
 import Home from './pages/Home.jsx';
 import Contact from './pages/Contact.jsx';
@@ -23,19 +24,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'about',
+        path: '/About',
         element: <About />,
       },
       {
-        path: 'portfolio',
+        path: '/Portfolio',
         element: <Portfolio />,
       },
       {
-        path: 'contact',
+        path: '/Contact',
         element: <Contact />,
       },
       {
-        path: 'resume',
+        path: '/Resume',
         element: <Resume />,
       },
     ],
