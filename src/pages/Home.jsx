@@ -1,4 +1,4 @@
-
+import Portfolio from './Portfolio.jsx';
 
 const HomePage = () => {
     return (
@@ -9,6 +9,7 @@ const HomePage = () => {
               <p>
                  This is a simple portfolio website created using React. 
               </p>
+              <Portfolio />
         </div>
         </div>
         </div>
