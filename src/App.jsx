@@ -5,6 +5,23 @@ import './App.css';
 
 
 function App() {
+
+  let items = [
+    'bi bi-linkedin',
+    'bi bi-github',
+    'bi bi-envelope',
+  ];
+
+  let pageLinks = [
+    'https://www.linkedin.com/in/tarameans/',
+    'https://github.com/HospitalGiftShop',
+    'mailto:tmeans01@gmail.com'
+  ]
+
+  const handleSelectedItem = (item) => {
+    console.log(item);
+  }
+
   return (
     <div className='d-flex flex-column min-vh-100'>
       <Header />
@@ -17,7 +34,7 @@ function App() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer items={items} pageLinks={pageLinks} onSelectItem={handleSelectedItem} />
     </div>
   );
 };
