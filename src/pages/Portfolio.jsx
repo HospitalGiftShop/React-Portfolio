@@ -2,11 +2,11 @@ import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap-utilities.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import projects from '../Projects.jsx';
+import projects from '../components/UI/Projects.jsx';
 
 const Portfolio = () => {
   return (
-    <div className="mt-5 mb-5">
+    <div className="container">
       <div className="row md-2 g-2">
         {projects.map((project) => (
           <div key={project.title} className="row col justify-content-center g-3">
@@ -33,7 +33,7 @@ const Portfolio = () => {
                 className="img-fluid border-0"
                 style={{
                   width: '100%',
-                  height: 'auto',
+                  height: '75%',
                   transition: 'transform 0.3s',
                 }}
               />
